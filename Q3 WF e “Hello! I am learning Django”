@@ -1,0 +1,2 @@
+Create your Django  app in which after running  the  server, you should see on  the  
+browser, the text  “Hello! I am learning Django”, which you defined in the index view.   
