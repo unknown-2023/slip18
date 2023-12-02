@@ -1,6 +1,18 @@
 Create your Django  app in which after running  the  server, you should see on  the  
 browser, the text  “Hello! I am learning Django”, which you defined in the index view.   
-
+-------------------------------
+#steps to execute
+1.create a folder in any localdisck for example D
+2.Open cmd in that folder
+3.python -m django startproject projectname
+4.cd projectname
+5.python manage.py startapp appname
+6..python manage.py migrate
+7.python manage.py runserver
+8.paste code in respective folder (foldername.py)
+9.1st urls paste in app (create new urls.py)
+10.2nd urls in exsisting
+--------------------------------------
 from django.shortcuts import render 
 # Create your views here.
 
@@ -10,17 +22,17 @@ def display(request):
 
 urls.py
 from django.urls import path
-from .views import display 
+from . import views
 urlpatterns = [
- path('display/',display, name="home") 
+ path('',views.index, name='index'),
 ] 
 
 test_project 
 urls.py 
 from django.contrib import admin
-from django.urls import path
-from django.urls import include
+from django.urls import path ,include
+
 urlpatterns = [
  path('admin/', admin.site.urls), 
- path('home/', include("home.urls")),
+ path('', include("app.urls")),
 ]
