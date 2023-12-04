@@ -16,21 +16,25 @@ browser, the text  “Hello! I am learning Django”, which you defined in the i
 from django.shortcuts import render 
 # Create your views here.
 
-Views.py
+views.py
 from django.http import HttpResponse
-def display(request):
- return HttpResponse("Hello! I am learning Django") 
+def index(request):
+    return HttpResponse("Hello! I am learning Django")
 
+Create a URL Mapping
+In the same app directory, create a urls.py file (e.g., myapp/urls.py) if it doesn't exist, and define a URL mapping for your view:
 urls.py
 from django.urls import path
 from . import views
 
 urlpatterns = [
-path('', views.index, name='index'),
+    path('', views.index, name='index'),
 ]
 
-test_project 
-urls.py 
+Configure the Project URL Routing
+Open the project's urls.py file (e.g., myproject/urls.py) and include the URL patterns of your app:
+urls.py
+from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
@@ -38,3 +42,7 @@ urlpatterns = [
     path('', include('myapp.urls')),			//add line for url routing
 ]
 
+Run the Development Server
+python manage.py runserver
+
+Open your web browser and go to http://127.0.0.1:8000/. 
